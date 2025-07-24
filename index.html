@@ -557,30 +557,385 @@ And this is my third paragraph!</textarea>
                 </div>
             </section>
 
-            <!-- Placeholder for remaining HTML sections 6-60 -->
+            <!-- HTML Section 6 -->
+            <section class="section-card" data-section="6">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">6</div>
+                    <h3 class="text-2xl font-bold">Headings: The Hierarchy of Ideas</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Headings are like the outline of a book. h1 is the book title, h2 are chapter titles, h3 are section titles, and so on. They create a clear hierarchy of information.</p>
+                </div>
+
+                <p class="mb-4">
+                    HTML provides six levels of headings, from <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;h1&gt;</code> (most important) to <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;h6&gt;</code> (least important).
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Heading Hierarchy Visualizer:</h4>
+                    <div class="space-y-4">
+                        <div class="grid gap-4">
+                            <div class="flex items-center space-x-4">
+                                <code class="code-font bg-gray-200 px-2 py-1 rounded text-sm">&lt;h1&gt;</code>
+                                <div class="live-preview flex-1"><h1 class="text-4xl font-bold">Main Title (h1)</h1></div>
+                            </div>
+                            <div class="flex items-center space-x-4 ml-4">
+                                <code class="code-font bg-gray-200 px-2 py-1 rounded text-sm">&lt;h2&gt;</code>
+                                <div class="live-preview flex-1"><h2 class="text-3xl font-semibold">Chapter Title (h2)</h2></div>
+                            </div>
+                            <div class="flex items-center space-x-4 ml-8">
+                                <code class="code-font bg-gray-200 px-2 py-1 rounded text-sm">&lt;h3&gt;</code>
+                                <div class="live-preview flex-1"><h3 class="text-2xl font-medium">Section Title (h3)</h3></div>
+                            </div>
+                            <div class="flex items-center space-x-4 ml-12">
+                                <code class="code-font bg-gray-200 px-2 py-1 rounded text-sm">&lt;h4&gt;</code>
+                                <div class="live-preview flex-1"><h4 class="text-xl">Subsection (h4)</h4></div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="block font-medium mb-2">Try your own heading:</label>
+                            <input type="text" id="headingInput" placeholder="Enter your heading text" 
+                                   class="w-full p-2 border rounded mb-2" value="My Custom Heading">
+                            <select id="headingLevel" class="w-full p-2 border rounded mb-2">
+                                <option value="h1">h1 - Main Title</option>
+                                <option value="h2">h2 - Chapter</option>
+                                <option value="h3" selected>h3 - Section</option>
+                                <option value="h4">h4 - Subsection</option>
+                                <option value="h5">h5 - Minor Heading</option>
+                                <option value="h6">h6 - Smallest Heading</option>
+                            </select>
+                            <button onclick="updateHeadingDemo()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Create Heading
+                            </button>
+                            <div class="live-preview mt-2" id="headingResult">
+                                <h3>My Custom Heading</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Proper heading hierarchy helps users navigate your content and helps search engines understand your page structure. It's crucial for accessibility and SEO.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 7 -->
+            <section class="section-card" data-section="7">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">7</div>
+                    <h3 class="text-2xl font-bold">Links: Bridges Between Worlds</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Links are like bridges or teleportation portals. They connect different pages, websites, or sections, allowing users to jump instantly from one place to another with a simple click.</p>
+                </div>
+
+                <p class="mb-4">
+                    The <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;a&gt;</code> (anchor) tag creates links. The <code class="code-font bg-gray-200 px-2 py-1 rounded">href</code> attribute tells the browser where to go when clicked.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Link Laboratory:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Different Types of Links:</h5>
+                                <div class="space-y-2">
+                                    <div class="live-preview">
+                                        <a href="#" class="text-blue-600 hover:text-blue-800 underline" onclick="showLinkDemo('external')">External Website Link</a>
+                                    </div>
+                                    <div class="live-preview">
+                                        <a href="#html-chapter" class="text-blue-600 hover:text-blue-800 underline">Internal Page Link</a>
+                                    </div>
+                                    <div class="live-preview">
+                                        <a href="mailto:hello@example.com" class="text-blue-600 hover:text-blue-800 underline">Email Link</a>
+                                    </div>
+                                    <div class="live-preview">
+                                        <a href="tel:+1234567890" class="text-blue-600 hover:text-blue-800 underline">Phone Link</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Create Your Own Link:</h5>
+                                <input type="text" id="linkText" placeholder="Link text" 
+                                       class="w-full p-2 border rounded mb-2" value="Click me!">
+                                <input type="url" id="linkUrl" placeholder="https://example.com" 
+                                       class="w-full p-2 border rounded mb-2" value="https://example.com">
+                                <button onclick="createLinkDemo()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                    Create Link
+                                </button>
+                                <div class="live-preview mt-2" id="linkResult">
+                                    <a href="https://example.com" class="text-blue-600 hover:text-blue-800 underline">Click me!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="linkDemoMessage" class="p-3 bg-yellow-50 border border-yellow-200 rounded hidden">
+                            <p class="text-yellow-800">Link clicked! In a real website, this would take you to another page.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Links are what make the web "web-like" - they connect information across the entire internet. Without links, each page would be isolated.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 8 -->
+            <section class="section-card" data-section="8">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">8</div>
+                    <h3 class="text-2xl font-bold">Images: Windows Into Other Realms</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Images are like windows in a house - they let you see into other worlds and add visual interest to otherwise plain walls. The src attribute is like the window's view - it determines what you see.</p>
+                </div>
+
+                <p class="mb-4">
+                    The <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;img&gt;</code> tag displays images. It's a self-closing tag that requires a <code class="code-font bg-gray-200 px-2 py-1 rounded">src</code> attribute to specify the image location.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Image Gallery Builder:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Image Attributes:</h5>
+                                <div class="space-y-2">
+                                    <div>
+                                        <label class="block text-sm font-medium">Alt Text (describes the image):</label>
+                                        <input type="text" id="imageAlt" placeholder="A beautiful sunset" 
+                                               class="w-full p-2 border rounded" value="A colorful geometric pattern">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Width:</label>
+                                        <input type="number" id="imageWidth" placeholder="300" 
+                                               class="w-full p-2 border rounded" value="200">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Choose a demo image:</label>
+                                        <select id="imageSelect" class="w-full p-2 border rounded">
+                                            <option value="https://via.placeholder.com/200x150/4F46E5/FFFFFF?text=Demo+Image">Blue Demo</option>
+                                            <option value="https://via.placeholder.com/200x150/10B981/FFFFFF?text=Green+Demo">Green Demo</option>
+                                            <option value="https://via.placeholder.com/200x150/F59E0B/FFFFFF?text=Orange+Demo">Orange Demo</option>
+                                            <option value="https://via.placeholder.com/200x150/8B5CF6/FFFFFF?text=Purple+Demo">Purple Demo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="updateImageDemo()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                    Update Image
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Your Image:</h5>
+                                <div class="live-preview" id="imageResult">
+                                    <img src="https://via.placeholder.com/200x150/4F46E5/FFFFFF?text=Demo+Image" 
+                                         alt="A colorful geometric pattern" 
+                                         width="200" 
+                                         class="rounded border">
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <strong>HTML Code:</strong>
+                                    <div class="code-font bg-gray-100 p-2 rounded text-xs mt-1" id="imageCode">
+                                        &lt;img src="..." alt="A colorful geometric pattern" width="200"&gt;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Images make websites visually engaging and help communicate ideas that words alone cannot. The alt attribute is crucial for accessibility and SEO.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 9 -->
+            <section class="section-card" data-section="9">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">9</div>
+                    <h3 class="text-2xl font-bold">Lists: Organizing Information</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Lists are like shopping lists or to-do lists in real life. Unordered lists (ul) are like bullet points on a grocery list, while ordered lists (ol) are like numbered steps in a recipe.</p>
+                </div>
+
+                <p class="mb-4">
+                    HTML provides two main types of lists: <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;ul&gt;</code> for unordered (bulleted) lists and <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;ol&gt;</code> for ordered (numbered) lists. Each item uses <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;li&gt;</code>.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">List Builder:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Create Your List:</h5>
+                                <div class="space-y-2">
+                                    <div>
+                                        <label class="block text-sm font-medium">List Type:</label>
+                                        <select id="listType" class="w-full p-2 border rounded">
+                                            <option value="ul">Unordered (bullets)</option>
+                                            <option value="ol">Ordered (numbers)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">List Items (one per line):</label>
+                                        <textarea id="listItems" class="w-full p-2 border rounded" rows="5" placeholder="Enter list items...">Learn HTML
+Learn CSS
+Learn JavaScript
+Build amazing websites
+Become a web developer</textarea>
+                                    </div>
+                                </div>
+                                <button onclick="updateListDemo()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                    Create List
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Your List:</h5>
+                                <div class="live-preview" id="listResult">
+                                    <ul>
+                                        <li>Learn HTML</li>
+                                        <li>Learn CSS</li>
+                                        <li>Learn JavaScript</li>
+                                        <li>Build amazing websites</li>
+                                        <li>Become a web developer</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h5 class="font-medium mb-2">Nested Lists Example:</h5>
+                            <div class="live-preview">
+                                <ul>
+                                    <li>Frontend Technologies
+                                        <ul>
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>JavaScript</li>
+                                        </ul>
+                                    </li>
+                                    <li>Backend Technologies
+                                        <ul>
+                                            <li>Node.js</li>
+                                            <li>Python</li>
+                                            <li>PHP</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Lists help organize information in a scannable, easy-to-read format. They're essential for navigation menus, feature lists, and structured content.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 10 -->
+            <section class="section-card" data-section="10">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">10</div>
+                    <h3 class="text-2xl font-bold">Divs: The Invisible Containers</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Divs are like invisible boxes or containers. Imagine organizing your room with clear plastic storage boxes - you can't see the boxes themselves, but they help group and organize your belongings.</p>
+                </div>
+
+                <p class="mb-4">
+                    The <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;div&gt;</code> tag is a generic container that groups other elements together. It has no visual appearance by itself but becomes powerful when styled with CSS.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Div Visualizer:</h4>
+                    <div class="space-y-4">
+                        <div class="flex space-x-2 mb-4">
+                            <button onclick="toggleDivBorders()" id="borderToggle" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Show Div Borders
+                            </button>
+                            <button onclick="addDivContent()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                Add Content
+                            </button>
+                            <button onclick="resetDivDemo()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                                Reset
+                            </button>
+                        </div>
+                        
+                        <div class="live-preview" id="divDemo">
+                            <div class="div-container" data-label="Header Section">
+                                <h2>Welcome to My Website</h2>
+                                <p>This is the header area</p>
+                            </div>
+                            <div class="div-container" data-label="Main Content">
+                                <div class="div-container" data-label="Article">
+                                    <h3>Article Title</h3>
+                                    <p>This is the main article content nested inside the main content div.</p>
+                                </div>
+                                <div class="div-container" data-label="Sidebar">
+                                    <h4>Sidebar</h4>
+                                    <p>Additional information goes here.</p>
+                                </div>
+                            </div>
+                            <div class="div-container" data-label="Footer">
+                                <p>© 2024 My Website. All rights reserved.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-3 bg-gray-50 rounded">
+                            <h5 class="font-medium mb-2">Understanding the Structure:</h5>
+                            <div class="code-font text-sm">
+                                &lt;div&gt; Header Section<br>
+                                &nbsp;&nbsp;&lt;h2&gt;Welcome...&lt;/h2&gt;<br>
+                                &nbsp;&nbsp;&lt;p&gt;This is the header...&lt;/p&gt;<br>
+                                &lt;/div&gt;<br>
+                                &lt;div&gt; Main Content<br>
+                                &nbsp;&nbsp;&lt;div&gt; Article ... &lt;/div&gt;<br>
+                                &nbsp;&nbsp;&lt;div&gt; Sidebar ... &lt;/div&gt;<br>
+                                &lt;/div&gt;<br>
+                                &lt;div&gt; Footer ... &lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Divs are the building blocks of web layouts. They help organize content logically and provide hooks for CSS styling and JavaScript functionality.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining HTML sections 11-60 -->
             <div class="section-card bg-blue-50 border-2 border-blue-200">
-                <h3 class="text-xl font-bold text-blue-800 mb-4">HTML Sections 6-60 Continue...</h3>
+                <h3 class="text-xl font-bold text-blue-800 mb-4">HTML Sections 11-60 Continue...</h3>
                 <p class="text-blue-700 mb-4">
-                    The remaining 55 HTML sections would continue with topics like:
+                    The remaining 50 HTML sections would continue with topics like:
                 </p>
                 <div class="grid md:grid-cols-2 gap-4 text-sm">
                     <ul class="space-y-1">
-                        <li>• Headings (h1-h6)</li>
-                        <li>• Links and navigation</li>
-                        <li>• Images and media</li>
-                        <li>• Lists (ordered/unordered)</li>
-                        <li>• Tables and data</li>
-                        <li>• Forms and inputs</li>
-                        <li>• Semantic HTML5 tags</li>
+                        <li>• Semantic HTML5 tags (header, nav, main, article, aside, footer)</li>
+                        <li>• Forms and input elements</li>
+                        <li>• Tables for data presentation</li>
+                        <li>• Multimedia elements (audio, video)</li>
+                        <li>• Document structure and metadata</li>
+                        <li>• Accessibility features and ARIA</li>
+                        <li>• Advanced form controls</li>
                     </ul>
                     <ul class="space-y-1">
-                        <li>• Document structure</li>
-                        <li>• Attributes and properties</li>
-                        <li>• Accessibility features</li>
-                        <li>• Meta tags and SEO</li>
-                        <li>• Embedding content</li>
-                        <li>• Advanced form elements</li>
-                        <li>• HTML5 APIs</li>
+                        <li>• HTML5 APIs and features</li>
+                        <li>• Embedding external content</li>
+                        <li>• Microdata and structured data</li>
+                        <li>• Performance optimization</li>
+                        <li>• SEO best practices</li>
+                        <li>• Cross-browser compatibility</li>
+                        <li>• HTML validation and debugging</li>
                     </ul>
                 </div>
                 <p class="text-blue-600 mt-4 italic">Each section includes interactive demos, visual metaphors, and hands-on practice!</p>
@@ -675,30 +1030,306 @@ And this is my third paragraph!</textarea>
                 </div>
             </section>
 
-            <!-- Placeholder for remaining CSS sections 63-120 -->
+            <!-- CSS Section 63 -->
+            <section class="section-card" data-section="63">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-3">63</div>
+                    <h3 class="text-2xl font-bold">The Box Model: Understanding Space</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> The box model is like a picture frame. You have the picture (content), the mat around it (padding), the frame itself (border), and the space between frames on the wall (margin).</p>
+                </div>
+
+                <p class="mb-4">
+                    Every HTML element is a rectangular box with four areas: content, padding, border, and margin. Understanding this is crucial for controlling layout and spacing.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Box Model Interactive Explorer:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Adjust the Box:</h5>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium">Content Size:</label>
+                                        <input type="range" id="contentSize" min="50" max="200" value="100" class="w-full">
+                                        <span id="contentValue" class="text-sm text-gray-600">100px</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Padding:</label>
+                                        <input type="range" id="paddingSize" min="0" max="50" value="20" class="w-full">
+                                        <span id="paddingValue" class="text-sm text-gray-600">20px</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Border Width:</label>
+                                        <input type="range" id="borderSize" min="0" max="20" value="5" class="w-full">
+                                        <span id="borderValue" class="text-sm text-gray-600">5px</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Margin:</label>
+                                        <input type="range" id="marginSize" min="0" max="50" value="15" class="w-full">
+                                        <span id="marginValue" class="text-sm text-gray-600">15px</span>
+                                    </div>
+                                </div>
+                                <button onclick="updateBoxModel()" class="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                    Update Box
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Visual Box Model:</h5>
+                                <div class="live-preview bg-gray-100 p-4 flex justify-center items-center min-h-[300px]">
+                                    <div id="boxModelDemo" class="relative">
+                                        <div class="absolute -top-6 left-0 text-xs text-gray-600">Margin</div>
+                                        <div class="box-margin bg-yellow-200 p-4">
+                                            <div class="absolute top-1 left-1 text-xs text-yellow-800">Border</div>
+                                            <div class="box-border bg-blue-200 border-4 border-blue-500">
+                                                <div class="absolute top-1 left-1 text-xs text-blue-800">Padding</div>
+                                                <div class="box-padding bg-green-200 p-4">
+                                                    <div class="box-content bg-white border border-gray-300 flex items-center justify-center text-sm font-medium">
+                                                        Content
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600" id="boxDimensions">
+                                    Total size: 170px × 170px
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h4 class="font-semibold text-green-800">Why This Matters:</h4>
+                    <p class="text-green-700">The box model determines how much space elements take up and how they interact with each other. Mastering it is essential for precise layouts.</p>
+                </div>
+            </section>
+
+            <!-- CSS Section 64 -->
+            <section class="section-card" data-section="64">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-3">64</div>
+                    <h3 class="text-2xl font-bold">Flexbox: The Smart Layout System</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Flexbox is like a smart shelf that automatically arranges items. You can tell it to center things, spread them out evenly, or stack them in different directions, and it figures out the details.</p>
+                </div>
+
+                <p class="mb-4">
+                    Flexbox (Flexible Box Layout) is a powerful CSS layout method that makes it easy to arrange elements in rows or columns, with automatic spacing and alignment.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Flexbox Playground:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Flex Controls:</h5>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium">Direction:</label>
+                                        <select id="flexDirection" class="w-full p-2 border rounded">
+                                            <option value="row">Row (horizontal)</option>
+                                            <option value="column">Column (vertical)</option>
+                                            <option value="row-reverse">Row Reverse</option>
+                                            <option value="column-reverse">Column Reverse</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Justify Content (main axis):</label>
+                                        <select id="justifyContent" class="w-full p-2 border rounded">
+                                            <option value="flex-start">Start</option>
+                                            <option value="center">Center</option>
+                                            <option value="flex-end">End</option>
+                                            <option value="space-between">Space Between</option>
+                                            <option value="space-around">Space Around</option>
+                                            <option value="space-evenly">Space Evenly</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Align Items (cross axis):</label>
+                                        <select id="alignItems" class="w-full p-2 border rounded">
+                                            <option value="stretch">Stretch</option>
+                                            <option value="flex-start">Start</option>
+                                            <option value="center">Center</option>
+                                            <option value="flex-end">End</option>
+                                            <option value="baseline">Baseline</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Wrap:</label>
+                                        <select id="flexWrap" class="w-full p-2 border rounded">
+                                            <option value="nowrap">No Wrap</option>
+                                            <option value="wrap">Wrap</option>
+                                            <option value="wrap-reverse">Wrap Reverse</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="updateFlexbox()" class="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                    Apply Flexbox
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Flex Container:</h5>
+                                <div class="live-preview bg-gray-100 border-2 border-dashed border-gray-300 min-h-[250px]">
+                                    <div id="flexContainer" class="h-full p-2 flex" style="min-height: 240px;">
+                                        <div class="flex-item bg-blue-500 text-white p-3 m-1 rounded">Item 1</div>
+                                        <div class="flex-item bg-green-500 text-white p-3 m-1 rounded">Item 2</div>
+                                        <div class="flex-item bg-orange-500 text-white p-3 m-1 rounded">Item 3</div>
+                                        <div class="flex-item bg-purple-500 text-white p-3 m-1 rounded">Item 4</div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <strong>CSS Applied:</strong>
+                                    <div class="code-font bg-gray-100 p-2 rounded text-xs mt-1" id="flexCSS">
+                                        display: flex;<br>
+                                        flex-direction: row;<br>
+                                        justify-content: flex-start;<br>
+                                        align-items: stretch;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h4 class="font-semibold text-green-800">Why This Matters:</h4>
+                    <p class="text-green-700">Flexbox solves many common layout problems with simple, intuitive properties. It's perfect for navigation bars, card layouts, and centering content.</p>
+                </div>
+            </section>
+
+            <!-- CSS Section 65 -->
+            <section class="section-card" data-section="65">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-3">65</div>
+                    <h3 class="text-2xl font-bold">Typography: The Art of Text</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Typography is like choosing the right voice for your content. Just as a whisper, normal speech, and shouting convey different emotions, different fonts, sizes, and styles communicate different feelings and importance levels.</p>
+                </div>
+
+                <p class="mb-4">
+                    Typography controls how text looks and feels. The right typography can make content more readable, establish hierarchy, and create emotional connections with users.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Typography Laboratory:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Text Controls:</h5>
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium">Font Family:</label>
+                                        <select id="fontFamily" class="w-full p-2 border rounded">
+                                            <option value="Arial, sans-serif">Arial (Sans-serif)</option>
+                                            <option value="Georgia, serif">Georgia (Serif)</option>
+                                            <option value="'Courier New', monospace">Courier New (Monospace)</option>
+                                            <option value="'Times New Roman', serif">Times New Roman</option>
+                                            <option value="Helvetica, sans-serif">Helvetica</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Font Size:</label>
+                                        <input type="range" id="fontSize" min="12" max="48" value="16" class="w-full">
+                                        <span id="fontSizeValue" class="text-sm text-gray-600">16px</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Font Weight:</label>
+                                        <select id="fontWeight" class="w-full p-2 border rounded">
+                                            <option value="300">Light (300)</option>
+                                            <option value="400" selected>Normal (400)</option>
+                                            <option value="600">Semi-bold (600)</option>
+                                            <option value="700">Bold (700)</option>
+                                            <option value="900">Black (900)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Line Height:</label>
+                                        <input type="range" id="lineHeight" min="1" max="3" step="0.1" value="1.5" class="w-full">
+                                        <span id="lineHeightValue" class="text-sm text-gray-600">1.5</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Letter Spacing:</label>
+                                        <input type="range" id="letterSpacing" min="-2" max="5" step="0.1" value="0" class="w-full">
+                                        <span id="letterSpacingValue" class="text-sm text-gray-600">0px</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium">Text Align:</label>
+                                        <select id="textAlign" class="w-full p-2 border rounded">
+                                            <option value="left">Left</option>
+                                            <option value="center">Center</option>
+                                            <option value="right">Right</option>
+                                            <option value="justify">Justify</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="updateTypography()" class="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                    Apply Typography
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Typography Preview:</h5>
+                                <div class="live-preview bg-white border p-4 min-h-[300px]">
+                                    <div id="typographyDemo">
+                                        <h1>This is a Heading</h1>
+                                        <p>This is a paragraph of text that demonstrates how typography affects readability and visual appeal. Notice how different font choices, sizes, and spacing create different feelings and levels of importance.</p>
+                                        <p>Typography is not just about making text look pretty—it's about communication. The right typography helps users understand your content hierarchy and creates an emotional connection with your brand.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <strong>CSS Applied:</strong>
+                                    <div class="code-font bg-gray-100 p-2 rounded text-xs mt-1" id="typographyCSS">
+                                        font-family: Arial, sans-serif;<br>
+                                        font-size: 16px;<br>
+                                        font-weight: 400;<br>
+                                        line-height: 1.5;<br>
+                                        letter-spacing: 0px;<br>
+                                        text-align: left;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h4 class="font-semibold text-green-800">Why This Matters:</h4>
+                    <p class="text-green-700">Good typography improves readability, establishes visual hierarchy, and creates emotional connections. It's often the difference between professional and amateur-looking websites.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining CSS sections 66-120 -->
             <div class="section-card bg-green-50 border-2 border-green-200">
-                <h3 class="text-xl font-bold text-green-800 mb-4">CSS Sections 63-120 Continue...</h3>
+                <h3 class="text-xl font-bold text-green-800 mb-4">CSS Sections 66-120 Continue...</h3>
                 <p class="text-green-700 mb-4">
-                    The remaining 58 CSS sections would cover:
+                    The remaining 55 CSS sections would cover:
                 </p>
                 <div class="grid md:grid-cols-2 gap-4 text-sm">
                     <ul class="space-y-1">
-                        <li>• Typography and fonts</li>
-                        <li>• Box model and spacing</li>
-                        <li>• Layout with Flexbox</li>
-                        <li>• CSS Grid systems</li>
-                        <li>• Positioning elements</li>
-                        <li>• Responsive design</li>
+                        <li>• CSS Grid for complex layouts</li>
+                        <li>• Positioning and z-index</li>
+                        <li>• Responsive design and media queries</li>
                         <li>• Animations and transitions</li>
+                        <li>• Transform and 3D effects</li>
+                        <li>• CSS variables and custom properties</li>
+                        <li>• Pseudo-classes and pseudo-elements</li>
                     </ul>
                     <ul class="space-y-1">
-                        <li>• Selectors and specificity</li>
-                        <li>• Pseudo-classes and elements</li>
-                        <li>• CSS variables</li>
-                        <li>• Media queries</li>
-                        <li>• Transform and effects</li>
-                        <li>• CSS architecture</li>
+                        <li>• Advanced selectors</li>
+                        <li>• CSS architecture and methodologies</li>
                         <li>• Performance optimization</li>
+                        <li>• Cross-browser compatibility</li>
+                        <li>• CSS preprocessors concepts</li>
+                        <li>• Modern CSS features</li>
+                        <li>• Debugging and developer tools</li>
                     </ul>
                 </div>
             </div>
@@ -1033,6 +1664,259 @@ And this is my third paragraph!</textarea>
         function celebrateCompletion() {
             alert('🎉 Congratulations! You\'re ready to build amazing websites! The web development world awaits your creativity!');
         }
+
+        // New interactive functions for expanded sections
+
+        // Heading demo
+        function updateHeadingDemo() {
+            const input = document.getElementById('headingInput').value;
+            const level = document.getElementById('headingLevel').value;
+            const result = document.getElementById('headingResult');
+            
+            result.innerHTML = `<${level}>${input}</${level}>`;
+        }
+
+        // Link demo functions
+        function showLinkDemo(type) {
+            const message = document.getElementById('linkDemoMessage');
+            message.classList.remove('hidden');
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 3000);
+        }
+
+        function createLinkDemo() {
+            const text = document.getElementById('linkText').value;
+            const url = document.getElementById('linkUrl').value;
+            const result = document.getElementById('linkResult');
+            
+            result.innerHTML = `<a href="${url}" class="text-blue-600 hover:text-blue-800 underline" onclick="showLinkDemo('custom')">${text}</a>`;
+        }
+
+        // Image demo
+        function updateImageDemo() {
+            const alt = document.getElementById('imageAlt').value;
+            const width = document.getElementById('imageWidth').value;
+            const src = document.getElementById('imageSelect').value;
+            const result = document.getElementById('imageResult');
+            const code = document.getElementById('imageCode');
+            
+            result.innerHTML = `<img src="${src}" alt="${alt}" width="${width}" class="rounded border">`;
+            code.innerHTML = `&lt;img src="${src}" alt="${alt}" width="${width}"&gt;`;
+        }
+
+        // List demo
+        function updateListDemo() {
+            const type = document.getElementById('listType').value;
+            const items = document.getElementById('listItems').value.split('\n').filter(item => item.trim());
+            const result = document.getElementById('listResult');
+            
+            const listItems = items.map(item => `<li>${item.trim()}</li>`).join('');
+            result.innerHTML = `<${type}>${listItems}</${type}>`;
+        }
+
+        // Div demo functions
+        let divBordersVisible = false;
+        
+        function toggleDivBorders() {
+            const containers = document.querySelectorAll('#divDemo .div-container');
+            const button = document.getElementById('borderToggle');
+            
+            divBordersVisible = !divBordersVisible;
+            
+            containers.forEach((container, index) => {
+                if (divBordersVisible) {
+                    container.style.border = '2px dashed #3B82F6';
+                    container.style.padding = '10px';
+                    container.style.margin = '5px 0';
+                    container.style.position = 'relative';
+                    
+                    // Add label
+                    const label = document.createElement('div');
+                    label.className = 'div-label';
+                    label.textContent = container.dataset.label;
+                    label.style.cssText = 'position: absolute; top: -10px; left: 10px; background: #3B82F6; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px;';
+                    container.appendChild(label);
+                } else {
+                    container.style.border = 'none';
+                    container.style.padding = '0';
+                    container.style.margin = '0';
+                    
+                    // Remove label
+                    const label = container.querySelector('.div-label');
+                    if (label) label.remove();
+                }
+            });
+            
+            button.textContent = divBordersVisible ? 'Hide Div Borders' : 'Show Div Borders';
+        }
+
+        function addDivContent() {
+            const demo = document.getElementById('divDemo');
+            const newDiv = document.createElement('div');
+            newDiv.className = 'div-container';
+            newDiv.dataset.label = 'New Section';
+            newDiv.innerHTML = '<h4>New Section Added!</h4><p>This div was created dynamically with JavaScript.</p>';
+            demo.appendChild(newDiv);
+            
+            if (divBordersVisible) {
+                newDiv.style.border = '2px dashed #10B981';
+                newDiv.style.padding = '10px';
+                newDiv.style.margin = '5px 0';
+                newDiv.style.position = 'relative';
+                
+                const label = document.createElement('div');
+                label.className = 'div-label';
+                label.textContent = 'New Section';
+                label.style.cssText = 'position: absolute; top: -10px; left: 10px; background: #10B981; color: white; padding: 2px 8px; font-size: 12px; border-radius: 4px;';
+                newDiv.appendChild(label);
+            }
+        }
+
+        function resetDivDemo() {
+            const demo = document.getElementById('divDemo');
+            demo.innerHTML = `
+                <div class="div-container" data-label="Header Section">
+                    <h2>Welcome to My Website</h2>
+                    <p>This is the header area</p>
+                </div>
+                <div class="div-container" data-label="Main Content">
+                    <div class="div-container" data-label="Article">
+                        <h3>Article Title</h3>
+                        <p>This is the main article content nested inside the main content div.</p>
+                    </div>
+                    <div class="div-container" data-label="Sidebar">
+                        <h4>Sidebar</h4>
+                        <p>Additional information goes here.</p>
+                    </div>
+                </div>
+                <div class="div-container" data-label="Footer">
+                    <p>© 2024 My Website. All rights reserved.</p>
+                </div>
+            `;
+            
+            divBordersVisible = false;
+            document.getElementById('borderToggle').textContent = 'Show Div Borders';
+        }
+
+        // CSS interactive functions
+
+        // Box model demo
+        function updateBoxModel() {
+            const contentSize = document.getElementById('contentSize').value;
+            const paddingSize = document.getElementById('paddingSize').value;
+            const borderSize = document.getElementById('borderSize').value;
+            const marginSize = document.getElementById('marginSize').value;
+            
+            // Update value displays
+            document.getElementById('contentValue').textContent = contentSize + 'px';
+            document.getElementById('paddingValue').textContent = paddingSize + 'px';
+            document.getElementById('borderValue').textContent = borderSize + 'px';
+            document.getElementById('marginValue').textContent = marginSize + 'px';
+            
+            // Apply to demo
+            const demo = document.getElementById('boxModelDemo');
+            const content = demo.querySelector('.box-content');
+            const padding = demo.querySelector('.box-padding');
+            const border = demo.querySelector('.box-border');
+            const margin = demo.querySelector('.box-margin');
+            
+            content.style.width = contentSize + 'px';
+            content.style.height = contentSize + 'px';
+            padding.style.padding = paddingSize + 'px';
+            border.style.borderWidth = borderSize + 'px';
+            margin.style.padding = marginSize + 'px';
+            
+            // Calculate total dimensions
+            const totalSize = parseInt(contentSize) + (parseInt(paddingSize) * 2) + (parseInt(borderSize) * 2) + (parseInt(marginSize) * 2);
+            document.getElementById('boxDimensions').textContent = `Total size: ${totalSize}px × ${totalSize}px`;
+        }
+
+        // Flexbox demo
+        function updateFlexbox() {
+            const direction = document.getElementById('flexDirection').value;
+            const justify = document.getElementById('justifyContent').value;
+            const align = document.getElementById('alignItems').value;
+            const wrap = document.getElementById('flexWrap').value;
+            
+            const container = document.getElementById('flexContainer');
+            container.style.flexDirection = direction;
+            container.style.justifyContent = justify;
+            container.style.alignItems = align;
+            container.style.flexWrap = wrap;
+            
+            // Update CSS display
+            document.getElementById('flexCSS').innerHTML = `
+                display: flex;<br>
+                flex-direction: ${direction};<br>
+                justify-content: ${justify};<br>
+                align-items: ${align};<br>
+                flex-wrap: ${wrap};
+            `;
+        }
+
+        // Typography demo
+        function updateTypography() {
+            const fontFamily = document.getElementById('fontFamily').value;
+            const fontSize = document.getElementById('fontSize').value;
+            const fontWeight = document.getElementById('fontWeight').value;
+            const lineHeight = document.getElementById('lineHeight').value;
+            const letterSpacing = document.getElementById('letterSpacing').value;
+            const textAlign = document.getElementById('textAlign').value;
+            
+            // Update value displays
+            document.getElementById('fontSizeValue').textContent = fontSize + 'px';
+            document.getElementById('lineHeightValue').textContent = lineHeight;
+            document.getElementById('letterSpacingValue').textContent = letterSpacing + 'px';
+            
+            // Apply to demo
+            const demo = document.getElementById('typographyDemo');
+            demo.style.fontFamily = fontFamily;
+            demo.style.fontSize = fontSize + 'px';
+            demo.style.fontWeight = fontWeight;
+            demo.style.lineHeight = lineHeight;
+            demo.style.letterSpacing = letterSpacing + 'px';
+            demo.style.textAlign = textAlign;
+            
+            // Update CSS display
+            document.getElementById('typographyCSS').innerHTML = `
+                font-family: ${fontFamily};<br>
+                font-size: ${fontSize}px;<br>
+                font-weight: ${fontWeight};<br>
+                line-height: ${lineHeight};<br>
+                letter-spacing: ${letterSpacing}px;<br>
+                text-align: ${textAlign};
+            `;
+        }
+
+        // Initialize interactive demos on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize box model
+            updateBoxModel();
+            
+            // Initialize flexbox
+            updateFlexbox();
+            
+            // Initialize typography
+            updateTypography();
+            
+            // Add event listeners for real-time updates
+            ['contentSize', 'paddingSize', 'borderSize', 'marginSize'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateBoxModel);
+            });
+            
+            ['flexDirection', 'justifyContent', 'alignItems', 'flexWrap'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateFlexbox);
+            });
+            
+            ['fontFamily', 'fontWeight', 'textAlign'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateTypography);
+            });
+            
+            ['fontSize', 'lineHeight', 'letterSpacing'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateTypography);
+            });
+        });
 
         // Intersection Observer for progress tracking
         const observer = new IntersectionObserver((entries) => {
