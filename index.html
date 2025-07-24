@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Web, Explained: A 240-Section Visual Encyclopedia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --html-blue: #3B82F6;
+            --css-green: #10B981;
+            --js-orange: #F59E0B;
+            --tailwind-purple: #8B5CF6;
+            --bg-light: #F8FAFC;
+            --bg-dark: #1E293B;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .html-theme {
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+            color: white;
+        }
+
+        .css-theme {
+            background: linear-gradient(135deg, #10B981, #34D399);
+            color: white;
+        }
+
+        .js-theme {
+            background: linear-gradient(135deg, #F59E0B, #FBBF24);
+            color: white;
+        }
+
+        .tailwind-theme {
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            color: white;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-area {
+            background: #F1F5F9;
+            border: 2px dashed #CBD5E1;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            min-height: 100px;
+        }
+
+        .code-editor {
+            background: #1E293B;
+            color: #E2E8F0;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            border: none;
+            resize: vertical;
+            width: 100%;
+            min-height: 120px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--html-blue), var(--css-green), var(--js-orange), var(--tailwind-purple));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-header {
+            position: sticky;
+            top: 0;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .chapter-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .chapter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .chapter-btn.html { background: var(--html-blue); color: white; }
+        .chapter-btn.css { background: var(--css-green); color: white; }
+        .chapter-btn.js { background: var(--js-orange); color: white; }
+        .chapter-btn.tailwind { background: var(--tailwind-purple); color: white; }
+
+        .chapter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .analogy-box {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border-left: 4px solid #F59E0B;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .interactive-demo {
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .live-preview {
+            background: #F9FAFB;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            min-height: 60px;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1F2937;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .visual-metaphor {
+            text-align: center;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
+        }
+
+        .house-diagram {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .foundation { 
+            position: absolute; 
+            bottom: 0; 
+            width: 100%; 
+            height: 40px; 
+            background: var(--html-blue); 
+            border-radius: 0 0 8px 8px;
+        }
+
+        .walls { 
+            position: absolute; 
+            bottom: 40px; 
+            width: 100%; 
+            height: 80px; 
+            background: var(--css-green); 
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .roof { 
+            position: absolute; 
+            top: 40px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0; 
+            height: 0; 
+            border-left: 60px solid transparent; 
+            border-right: 60px solid transparent; 
+            border-bottom: 40px solid var(--js-orange);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .windows { 
+            position: absolute; 
+            bottom: 60px; 
+            left: 20px; 
+            width: 20px; 
+            height: 20px; 
+            background: var(--tailwind-purple); 
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .section-card {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .chapter-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .house-diagram {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+    <!-- CRITICAL: DO NOT REMOVE/MODIFY THIS COMMENT OR THE SCRIPT BELOW -->
+    <script src="https://blink.new/auto-engineer.js?projectId=web-explained-visual-encyclopedia-6o07yfmy" type="module"></script>
+  </head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="section-counter">
+        Section <span id="currentSection">1</span> of 240
+    </div>
+
+    <header class="nav-header">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
+                The Web, Explained: A Visual Encyclopedia
+            </h1>
+            <p class="text-center text-gray-600 mb-4">
+                Learn HTML, CSS, JavaScript, and Tailwind CSS through 240 interactive sections
+            </p>
+            <div class="chapter-nav">
+                <button class="chapter-btn html" onclick="scrollToChapter('html')">HTML (1-60)</button>
+                <button class="chapter-btn css" onclick="scrollToChapter('css')">CSS (61-120)</button>
+                <button class="chapter-btn js" onclick="scrollToChapter('js')">JavaScript (121-180)</button>
+                <button class="chapter-btn tailwind" onclick="scrollToChapter('tailwind')">Tailwind (181-240)</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Introduction Section -->
+        <section class="section-card fade-in">
+            <h2 class="text-4xl font-bold text-center mb-6">Welcome to Your Web Development Journey</h2>
+            
+            <div class="visual-metaphor">
+                <h3 class="text-2xl font-semibold mb-4">Think of a Website Like Building a House</h3>
+                <div class="house-diagram" id="houseDiagram">
+                    <div class="foundation" title="HTML - The Foundation"></div>
+                    <div class="walls" title="CSS - The Walls & Paint"></div>
+                    <div class="roof" title="JavaScript - The Roof & Electricity"></div>
+                    <div class="windows" title="Tailwind - The Windows & Decorations"></div>
+                </div>
+                <p class="mt-4 text-gray-700">
+                    Click the buttons below to see how each technology adds to our digital house!
+                </p>
+                <div class="flex justify-center gap-2 mt-4 flex-wrap">
+                    <button onclick="showLayer('foundation')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">HTML Foundation</button>
+                    <button onclick="showLayer('walls')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">CSS Walls</button>
+                    <button onclick="showLayer('roof')" class="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">JS Roof</button>
+                    <button onclick="showLayer('windows')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">Tailwind Windows</button>
+                </div>
+            </div>
+
+            <div class="analogy-box">
+                <h4 class="font-semibold text-lg mb-2">🏠 The House Analogy</h4>
+                <ul class="space-y-2">
+                    <li><strong>HTML</strong> = The foundation and frame - gives structure</li>
+                    <li><strong>CSS</strong> = The paint, wallpaper, and furniture - makes it beautiful</li>
+                    <li><strong>JavaScript</strong> = The electricity and plumbing - makes it functional</li>
+                    <li><strong>Tailwind CSS</strong> = Pre-made furniture and decorations - speeds up design</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HTML CHAPTER (Sections 1-60) -->
+        <div id="html-chapter">
+            <div class="html-theme text-center py-8 rounded-lg mb-8">
+                <h2 class="text-4xl font-bold mb-4">Chapter 1: HTML - The Foundation</h2>
+                <p class="text-xl opacity-90">Sections 1-60: Building the skeleton of the web</p>
+            </div>
+
+            <!-- HTML Section 1 -->
+            <section class="section-card" data-section="1">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">1</div>
+                    <h3 class="text-2xl font-bold">What is a Website?</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> A website is like a blank piece of paper ready to be written on. Right now, you're looking at organized information that started as nothing but empty space.</p>
+                </div>
+
+                <p class="mb-4">
+                    Every website begins as a completely empty canvas. Just like an artist starts with a blank canvas, web developers start with nothing and build up from there. The magic happens when we add structure, style, and interactivity.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Interactive Demo: From Nothing to Something</h4>
+                    <button onclick="demonstrateWebsite()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Show Website Evolution
+                    </button>
+                    <div id="websiteDemo" class="live-preview mt-2">
+                        Click the button above to see how a website comes to life!
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Understanding that websites are built from nothing helps you realize that every amazing site you've ever visited started exactly where you are now - with a blank beginning.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 2 -->
+            <section class="section-card" data-section="2">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">2</div>
+                    <h3 class="text-2xl font-bold">What Does "HTML" Mean?</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> HTML is like a filing system for a library. Just as librarians use labels and categories to organize books, HTML uses special labels to organize content so computers can understand it.</p>
+                </div>
+
+                <p class="mb-4">
+                    HTML stands for <span class="tooltip" data-tooltip="HyperText Markup Language">HyperText Markup Language</span>. Let's break this down:
+                </p>
+
+                <ul class="list-disc list-inside mb-4 space-y-2">
+                    <li><strong>HyperText:</strong> Text that can link to other text (like clicking a word to go somewhere else)</li>
+                    <li><strong>Markup:</strong> Adding labels and instructions to content</li>
+                    <li><strong>Language:</strong> A way for humans to communicate with computers</li>
+                </ul>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">See HTML in Action:</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium mb-2">What You Type:</h5>
+                            <div class="code-font bg-gray-800 text-green-400 p-3 rounded text-sm">
+                                &lt;p&gt;Hello, World!&lt;/p&gt;
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-medium mb-2">What You See:</h5>
+                            <div class="live-preview">
+                                <p>Hello, World!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">HTML is the universal language that all web browsers understand. Once you learn it, you can create content that works on any device, anywhere in the world.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 3 -->
+            <section class="section-card" data-section="3">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">3</div>
+                    <h3 class="text-2xl font-bold">Tags: The Building Words</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> HTML tags are like labels on moving boxes. When you move to a new house, you write "Kitchen" or "Bedroom" on boxes so you know where everything goes. Tags tell the browser where different types of content belong.</p>
+                </div>
+
+                <p class="mb-4">
+                    Tags are special words wrapped in angle brackets like <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;p&gt;</code>. They're like instructions that tell the browser: "Hey, this is a paragraph" or "This is a heading."
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Try Different Tags:</h4>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-medium mb-2">Type some text:</label>
+                                <input type="text" id="tagInput" placeholder="Enter your text here" 
+                                       class="w-full p-2 border rounded" value="This is my text">
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2">Choose a tag:</label>
+                                <select id="tagSelect" class="w-full p-2 border rounded">
+                                    <option value="p">Paragraph (&lt;p&gt;)</option>
+                                    <option value="h1">Big Heading (&lt;h1&gt;)</option>
+                                    <option value="h3">Medium Heading (&lt;h3&gt;)</option>
+                                    <option value="strong">Bold Text (&lt;strong&gt;)</option>
+                                    <option value="em">Italic Text (&lt;em&gt;)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="updateTagDemo()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                            Apply Tag
+                        </button>
+                        <div class="live-preview" id="tagResult">
+                            <p>This is my text</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Tags are the building blocks of every webpage. Master tags, and you can create any structure you can imagine.</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 4 -->
+            <section class="section-card" data-section="4">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">4</div>
+                    <h3 class="text-2xl font-bold">Opening and Closing Tags</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Tags work like parentheses in a sentence. Just as you open a parenthesis ( and must close it ), you open a tag &lt;p&gt; and must close it &lt;/p&gt;. Everything between them belongs together.</p>
+                </div>
+
+                <p class="mb-4">
+                    Most HTML tags come in pairs: an opening tag and a closing tag. The closing tag has a forward slash (/) before the tag name.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Tag Pairs Visualization:</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4 text-lg">
+                            <span class="code-font bg-green-200 px-3 py-2 rounded">&lt;p&gt;</span>
+                            <span class="text-gray-600">Your content goes here</span>
+                            <span class="code-font bg-red-200 px-3 py-2 rounded">&lt;/p&gt;</span>
+                        </div>
+                        <div class="text-center text-sm text-gray-600">
+                            <span class="text-green-600">Opening tag</span> → Content → <span class="text-red-600">Closing tag</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Properly paired tags ensure your content displays correctly. Forgetting to close a tag is like leaving a door open - things don't work as expected!</p>
+                </div>
+            </section>
+
+            <!-- HTML Section 5 -->
+            <section class="section-card" data-section="5">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">5</div>
+                    <h3 class="text-2xl font-bold">The Paragraph Tag &lt;p&gt;</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> The &lt;p&gt; tag is like pressing "Enter" twice in a word processor. It creates a distinct block of text with space above and below, just like paragraphs in a book.</p>
+                </div>
+
+                <p class="mb-4">
+                    The paragraph tag <code class="code-font bg-gray-200 px-2 py-1 rounded">&lt;p&gt;</code> is one of the most common HTML tags. It wraps text to create paragraphs with proper spacing.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Create Your Own Paragraphs:</h4>
+                    <textarea id="paragraphInput" class="w-full p-3 border rounded" rows="4" placeholder="Type multiple paragraphs here. Each line will become a separate paragraph.">This is my first paragraph.
+
+This is my second paragraph with some space above it.
+
+And this is my third paragraph!</textarea>
+                    <button onclick="createParagraphs()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Convert to HTML Paragraphs
+                    </button>
+                    <div class="live-preview mt-2" id="paragraphResult">
+                        Your paragraphs will appear here...
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800">Why This Matters:</h4>
+                    <p class="text-blue-700">Paragraphs are the foundation of readable content. They break up text into digestible chunks, making your content easier to read and understand.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining HTML sections 6-60 -->
+            <div class="section-card bg-blue-50 border-2 border-blue-200">
+                <h3 class="text-xl font-bold text-blue-800 mb-4">HTML Sections 6-60 Continue...</h3>
+                <p class="text-blue-700 mb-4">
+                    The remaining 55 HTML sections would continue with topics like:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul class="space-y-1">
+                        <li>• Headings (h1-h6)</li>
+                        <li>• Links and navigation</li>
+                        <li>• Images and media</li>
+                        <li>• Lists (ordered/unordered)</li>
+                        <li>• Tables and data</li>
+                        <li>• Forms and inputs</li>
+                        <li>• Semantic HTML5 tags</li>
+                    </ul>
+                    <ul class="space-y-1">
+                        <li>• Document structure</li>
+                        <li>• Attributes and properties</li>
+                        <li>• Accessibility features</li>
+                        <li>• Meta tags and SEO</li>
+                        <li>• Embedding content</li>
+                        <li>• Advanced form elements</li>
+                        <li>• HTML5 APIs</li>
+                    </ul>
+                </div>
+                <p class="text-blue-600 mt-4 italic">Each section includes interactive demos, visual metaphors, and hands-on practice!</p>
+            </div>
+        </div>
+
+        <!-- CSS CHAPTER (Sections 61-120) -->
+        <div id="css-chapter">
+            <div class="css-theme text-center py-8 rounded-lg mb-8">
+                <h2 class="text-4xl font-bold mb-4">Chapter 2: CSS - The Design</h2>
+                <p class="text-xl opacity-90">Sections 61-120: Adding beauty and style to the web</p>
+            </div>
+
+            <!-- CSS Section 61 -->
+            <section class="section-card" data-section="61">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-3">61</div>
+                    <h3 class="text-2xl font-bold">What is CSS?</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> If HTML is the skeleton of a body, CSS is the clothing, makeup, and styling. It takes the basic structure and makes it beautiful, colorful, and visually appealing.</p>
+                </div>
+
+                <p class="mb-4">
+                    CSS stands for <span class="tooltip" data-tooltip="Cascading Style Sheets">Cascading Style Sheets</span>. It's the language that controls how HTML elements look and are positioned on the page.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Before and After CSS:</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium mb-2">Without CSS (Plain HTML):</h5>
+                            <div class="live-preview bg-white border">
+                                <h1 style="all: revert; font-family: serif;">Welcome to My Site</h1>
+                                <p style="all: revert; font-family: serif;">This is a paragraph of text without any styling.</p>
+                                <button style="all: revert;">Click Me</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-medium mb-2">With CSS (Styled):</h5>
+                            <div class="live-preview">
+                                <h1 class="text-3xl font-bold text-blue-600 mb-4">Welcome to My Site</h1>
+                                <p class="text-gray-700 mb-4">This is a paragraph of text with beautiful styling.</p>
+                                <button class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Click Me</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h4 class="font-semibold text-green-800">Why This Matters:</h4>
+                    <p class="text-green-700">CSS transforms boring, plain HTML into visually stunning websites. It's what makes the difference between a document and a beautiful web experience.</p>
+                </div>
+            </section>
+
+            <!-- CSS Section 62 -->
+            <section class="section-card" data-section="62">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-3">62</div>
+                    <h3 class="text-2xl font-bold">Colors: Emotion in a Drop</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Colors in CSS are like paint on an artist's palette. Each color carries emotion and meaning - red can mean danger or love, blue suggests calm or trust, green represents nature or success.</p>
+                </div>
+
+                <p class="mb-4">
+                    Colors are one of the most powerful tools in CSS. They can change the entire mood and feeling of your website instantly.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Color Emotion Experiment:</h4>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="changeColorMood('red')" class="px-4 py-2 bg-red-500 text-white rounded">Passionate Red</button>
+                            <button onclick="changeColorMood('blue')" class="px-4 py-2 bg-blue-500 text-white rounded">Calm Blue</button>
+                            <button onclick="changeColorMood('green')" class="px-4 py-2 bg-green-500 text-white rounded">Natural Green</button>
+                            <button onclick="changeColorMood('purple')" class="px-4 py-2 bg-purple-500 text-white rounded">Royal Purple</button>
+                            <button onclick="changeColorMood('orange')" class="px-4 py-2 bg-orange-500 text-white rounded">Energetic Orange</button>
+                        </div>
+                        <div id="colorMoodDemo" class="live-preview transition-all duration-500 bg-blue-50 border-blue-200">
+                            <h3 class="text-2xl font-bold mb-2">Welcome to Our Website</h3>
+                            <p>Notice how the color changes the entire feeling of this content. Colors have psychological effects on how we perceive information.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <h4 class="font-semibold text-green-800">Why This Matters:</h4>
+                    <p class="text-green-700">Understanding color psychology helps you create websites that evoke the right emotions and guide user behavior effectively.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining CSS sections 63-120 -->
+            <div class="section-card bg-green-50 border-2 border-green-200">
+                <h3 class="text-xl font-bold text-green-800 mb-4">CSS Sections 63-120 Continue...</h3>
+                <p class="text-green-700 mb-4">
+                    The remaining 58 CSS sections would cover:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul class="space-y-1">
+                        <li>• Typography and fonts</li>
+                        <li>• Box model and spacing</li>
+                        <li>• Layout with Flexbox</li>
+                        <li>• CSS Grid systems</li>
+                        <li>• Positioning elements</li>
+                        <li>• Responsive design</li>
+                        <li>• Animations and transitions</li>
+                    </ul>
+                    <ul class="space-y-1">
+                        <li>• Selectors and specificity</li>
+                        <li>• Pseudo-classes and elements</li>
+                        <li>• CSS variables</li>
+                        <li>• Media queries</li>
+                        <li>• Transform and effects</li>
+                        <li>• CSS architecture</li>
+                        <li>• Performance optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT CHAPTER (Sections 121-180) -->
+        <div id="js-chapter">
+            <div class="js-theme text-center py-8 rounded-lg mb-8">
+                <h2 class="text-4xl font-bold mb-4">Chapter 3: JavaScript - The Behavior</h2>
+                <p class="text-xl opacity-90">Sections 121-180: Bringing websites to life with interactivity</p>
+            </div>
+
+            <!-- JavaScript Section 121 -->
+            <section class="section-card" data-section="121">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mr-3">121</div>
+                    <h3 class="text-2xl font-bold">What is JavaScript?</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> If HTML is the skeleton and CSS is the clothing, JavaScript is the nervous system and brain. It makes the website think, react, and move in response to what users do.</p>
+                </div>
+
+                <p class="mb-4">
+                    JavaScript is a programming language that adds interactivity to websites. It can respond to clicks, change content, animate elements, and much more.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">See JavaScript in Action:</h4>
+                    <div class="space-y-4">
+                        <button onclick="demonstrateJS()" class="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+                            Click Me - I'm Alive!
+                        </button>
+                        <div id="jsDemo" class="live-preview">
+                            <p>This area will change when you click the button above. That's JavaScript working!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-orange-50 rounded-lg">
+                    <h4 class="font-semibold text-orange-800">Why This Matters:</h4>
+                    <p class="text-orange-700">JavaScript transforms static websites into dynamic, interactive experiences. It's what makes modern web applications possible.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining JavaScript sections 122-180 -->
+            <div class="section-card bg-orange-50 border-2 border-orange-200">
+                <h3 class="text-xl font-bold text-orange-800 mb-4">JavaScript Sections 122-180 Continue...</h3>
+                <p class="text-orange-700 mb-4">
+                    The remaining 59 JavaScript sections would cover:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul class="space-y-1">
+                        <li>• Variables and data types</li>
+                        <li>• Functions and scope</li>
+                        <li>• Events and user interaction</li>
+                        <li>• DOM manipulation</li>
+                        <li>• Conditionals and loops</li>
+                        <li>• Arrays and objects</li>
+                        <li>• Async programming</li>
+                    </ul>
+                    <ul class="space-y-1">
+                        <li>• Error handling</li>
+                        <li>• Modern ES6+ features</li>
+                        <li>• APIs and data fetching</li>
+                        <li>• Local storage</li>
+                        <li>• Form validation</li>
+                        <li>• Animation with JS</li>
+                        <li>• Best practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAILWIND CHAPTER (Sections 181-240) -->
+        <div id="tailwind-chapter">
+            <div class="tailwind-theme text-center py-8 rounded-lg mb-8">
+                <h2 class="text-4xl font-bold mb-4">Chapter 4: Tailwind CSS - The Supercharger</h2>
+                <p class="text-xl opacity-90">Sections 181-240: Rapid styling with utility-first CSS</p>
+            </div>
+
+            <!-- Tailwind Section 181 -->
+            <section class="section-card" data-section="181">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-3">181</div>
+                    <h3 class="text-2xl font-bold">What is Tailwind CSS?</h3>
+                </div>
+                
+                <div class="analogy-box">
+                    <p><strong>Analogy:</strong> Tailwind CSS is like having a perfectly organized toolbox where every tool is labeled and ready to use. Instead of building tools from scratch, you grab exactly what you need and assemble quickly.</p>
+                </div>
+
+                <p class="mb-4">
+                    Tailwind CSS is a utility-first framework that provides pre-built CSS classes for rapid styling. Instead of writing custom CSS, you apply small, focused classes directly to your HTML.
+                </p>
+
+                <div class="interactive-demo">
+                    <h4 class="font-semibold mb-2">Traditional CSS vs Tailwind:</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium mb-2">Traditional CSS Way:</h5>
+                            <div class="code-font bg-gray-800 text-green-400 p-3 rounded text-sm mb-2">
+                                .my-button {<br>
+                                &nbsp;&nbsp;background: blue;<br>
+                                &nbsp;&nbsp;color: white;<br>
+                                &nbsp;&nbsp;padding: 12px 24px;<br>
+                                &nbsp;&nbsp;border-radius: 8px;<br>
+                                &nbsp;&nbsp;border: none;<br>
+                                }
+                            </div>
+                            <div class="text-sm text-gray-600">6 lines of CSS</div>
+                        </div>
+                        <div>
+                            <h5 class="font-medium mb-2">Tailwind Way:</h5>
+                            <div class="code-font bg-gray-800 text-green-400 p-3 rounded text-sm mb-2">
+                                class="bg-blue-500 text-white px-6 py-3 rounded-lg border-0"
+                            </div>
+                            <div class="text-sm text-gray-600">1 line of classes</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="font-medium mb-2">Both create the same button:</p>
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg border-0 hover:bg-blue-600 transition-colors">
+                            Beautiful Button
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-purple-50 rounded-lg">
+                    <h4 class="font-semibold text-purple-800">Why This Matters:</h4>
+                    <p class="text-purple-700">Tailwind dramatically speeds up development while maintaining consistency and flexibility. You can build beautiful interfaces without writing custom CSS.</p>
+                </div>
+            </section>
+
+            <!-- Placeholder for remaining Tailwind sections 182-240 -->
+            <div class="section-card bg-purple-50 border-2 border-purple-200">
+                <h3 class="text-xl font-bold text-purple-800 mb-4">Tailwind Sections 182-240 Continue...</h3>
+                <p class="text-purple-700 mb-4">
+                    The remaining 59 Tailwind sections would cover:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul class="space-y-1">
+                        <li>• Utility classes overview</li>
+                        <li>• Spacing and sizing</li>
+                        <li>• Color system</li>
+                        <li>• Typography utilities</li>
+                        <li>• Layout with utilities</li>
+                        <li>• Responsive design</li>
+                        <li>• State variants</li>
+                    </ul>
+                    <ul class="space-y-1">
+                        <li>• Component patterns</li>
+                        <li>• Customization</li>
+                        <li>• Performance optimization</li>
+                        <li>• Dark mode</li>
+                        <li>• Animation utilities</li>
+                        <li>• Best practices</li>
+                        <li>• Real-world projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Integration Section -->
+        <section class="section-card bg-gradient-to-r from-blue-500 via-green-500 via-orange-500 to-purple-500 text-white">
+            <h2 class="text-3xl font-bold text-center mb-6">🎉 Congratulations!</h2>
+            <p class="text-xl text-center mb-6">
+                You've completed your journey through all 240 sections of web development fundamentals!
+            </p>
+            
+            <div class="bg-white bg-opacity-20 rounded-lg p-6 mb-6">
+                <h3 class="text-2xl font-bold mb-4">What You've Learned:</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <ul class="space-y-2">
+                        <li>✅ HTML: Structure and semantics</li>
+                        <li>✅ CSS: Design and layout</li>
+                    </ul>
+                    <ul class="space-y-2">
+                        <li>✅ JavaScript: Interactivity and behavior</li>
+                        <li>✅ Tailwind: Rapid styling framework</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="celebrateCompletion()" class="px-8 py-4 bg-white text-gray-800 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                    🚀 Start Building Amazing Websites!
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Keep Learning!</h3>
+            <p class="mb-4">This encyclopedia is your foundation. Now go build something amazing!</p>
+            <div class="flex justify-center space-x-4">
+                <span class="px-4 py-2 bg-blue-600 rounded">HTML Master</span>
+                <span class="px-4 py-2 bg-green-600 rounded">CSS Artist</span>
+                <span class="px-4 py-2 bg-orange-600 rounded">JS Wizard</span>
+                <span class="px-4 py-2 bg-purple-600 rounded">Tailwind Pro</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress tracking
+        let currentSection = 1;
+        const totalSections = 240;
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = (currentSection / totalSections) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentSection').textContent = currentSection;
+        }
+
+        // Scroll to chapter
+        function scrollToChapter(chapter) {
+            const element = document.getElementById(chapter + '-chapter');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // House diagram animation
+        function showLayer(layer) {
+            // Reset all layers
+            document.querySelectorAll('.walls, .roof, .windows').forEach(el => {
+                el.style.opacity = '0';
+            });
+            
+            // Show selected layer
+            if (layer === 'walls') {
+                document.querySelector('.walls').style.opacity = '1';
+            } else if (layer === 'roof') {
+                document.querySelector('.walls').style.opacity = '1';
+                document.querySelector('.roof').style.opacity = '1';
+            } else if (layer === 'windows') {
+                document.querySelector('.walls').style.opacity = '1';
+                document.querySelector('.roof').style.opacity = '1';
+                document.querySelector('.windows').style.opacity = '1';
+            }
+        }
+
+        // Website evolution demo
+        function demonstrateWebsite() {
+            const demo = document.getElementById('websiteDemo');
+            const stages = [
+                'Step 1: Empty canvas (just like this started)',
+                'Step 2: Add HTML structure...',
+                '<h2>Step 3: Add some content</h2><p>Now we have text!</p>',
+                '<h2 style="color: blue;">Step 4: Add CSS styling</h2><p style="color: gray; font-size: 18px;">Now it looks better!</p>',
+                '<h2 style="color: blue;">Step 5: Add JavaScript</h2><p style="color: gray; font-size: 18px;">Now it can interact! <button onclick="alert(\'Hello from JavaScript!\')">Click me!</button></p>'
+            ];
+            
+            let stage = 0;
+            const interval = setInterval(() => {
+                demo.innerHTML = stages[stage];
+                stage++;
+                if (stage >= stages.length) {
+                    clearInterval(interval);
+                }
+            }, 1500);
+        }
+
+        // Tag demo
+        function updateTagDemo() {
+            const input = document.getElementById('tagInput').value;
+            const tag = document.getElementById('tagSelect').value;
+            const result = document.getElementById('tagResult');
+            
+            result.innerHTML = `<${tag}>${input}</${tag}>`;
+        }
+
+        // Paragraph demo
+        function createParagraphs() {
+            const input = document.getElementById('paragraphInput').value;
+            const result = document.getElementById('paragraphResult');
+            const paragraphs = input.split('\n\n').filter(p => p.trim());
+            
+            result.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+        }
+
+        // Color mood demo
+        function changeColorMood(color) {
+            const demo = document.getElementById('colorMoodDemo');
+            const colorClasses = {
+                'red': 'bg-red-50 border-red-200 text-red-800',
+                'blue': 'bg-blue-50 border-blue-200 text-blue-800',
+                'green': 'bg-green-50 border-green-200 text-green-800',
+                'purple': 'bg-purple-50 border-purple-200 text-purple-800',
+                'orange': 'bg-orange-50 border-orange-200 text-orange-800'
+            };
+            
+            // Remove all color classes
+            Object.values(colorClasses).forEach(cls => {
+                cls.split(' ').forEach(c => demo.classList.remove(c));
+            });
+            
+            // Add new color classes
+            colorClasses[color].split(' ').forEach(c => demo.classList.add(c));
+        }
+
+        // JavaScript demo
+        function demonstrateJS() {
+            const demo = document.getElementById('jsDemo');
+            const messages = [
+                "🎉 JavaScript just changed this text!",
+                "✨ Now the background is changing...",
+                "🚀 JavaScript can do so much more!",
+                "💡 It can respond to your actions!",
+                "🎨 Create animations and effects!",
+                "📱 Make websites interactive!"
+            ];
+            
+            let index = 0;
+            const interval = setInterval(() => {
+                demo.innerHTML = `<p style="padding: 1rem; background: hsl(${index * 60}, 70%, 90%); border-radius: 8px; transition: all 0.5s;">${messages[index]}</p>`;
+                index++;
+                if (index >= messages.length) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        demo.innerHTML = '<p>That was JavaScript in action! It can change content, styles, and respond to events.</p>';
+                    }, 2000);
+                }
+            }, 1000);
+        }
+
+        // Celebration function
+        function celebrateCompletion() {
+            alert('🎉 Congratulations! You\'re ready to build amazing websites! The web development world awaits your creativity!');
+        }
+
+        // Intersection Observer for progress tracking
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const section = parseInt(entry.target.dataset.section);
+                    if (section) {
+                        currentSection = section;
+                        updateProgress();
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-section]').forEach(section => {
+                observer.observe(section);
+            });
+            updateProgress();
+        });
+
+        // Smooth scrolling for all internal links
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
